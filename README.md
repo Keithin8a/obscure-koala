@@ -7,3 +7,31 @@ It's using Serverless Cloud which lets me quickly spin up an application using t
 ## Design Feedback
 
 * Button looks like it's disabled 
+
+## MVP Logical Chunks
+
+1. Getting main page built in HTML and CSS
+    * Delivers value that the design is functional and the team (me) have all the knowledge to build it.
+    * Use Stubbed data
+    * No need to add star graphics yet
+2. Build out the backend & Database
+    * Delivers value that we can store and retrieve data.
+    * We don't need to calculate the total review score, that can be done on client side
+    * Backend and database sounds like a big chunk but this is a crud app and Serverless Cloud makes DB stuff really easy
+    * One thing I like about doing the backend as a separate ticket is that it forces you to write tests because you can't just simply check that it works from the frontend
+3. Update UI to use data from the database
+    * Delivers value that we are now using real data in the UI
+    * Calculate the total review score client side
+4. Build Add Rating Overlay
+    * This doesn't have to be a model for now, lets just add it on the page and get it hooked up.
+    * Delivers value by proving out the design of the modal
+    * Add the stars graphic across app. Slight scope creep but I'm not worried about the extra effort at this stage.
+    * Stars don't need to be interactive
+5. Allow a user to submit a review
+    * Delivers value by completing the main functionality of the application
+    * Stars should be interactive
+    * Submit review button calls backend
+6. Make submit review code a modal
+    * Delivers value by keeping the UI clean and more user friendly
+    * Call a refresh for the page data when modal closes
+
