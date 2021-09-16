@@ -2,25 +2,31 @@
     {
         "key": "The-Minimalist-Entrepreneur:Review:1",
         "value": {
-            "id": "1",
             "review": "book was full of fluff",
-            "rating": "4"
-        }
+            "id": 1,
+            "rating": 4
+        },
+        "created": "2021-09-16T16:36:39.000Z",
+        "modified": "2021-09-16T19:43:30.000Z"
     },
     {
         "key": "The-Minimalist-Entrepreneur:Review:2",
         "value": {
-            "id": "2",
             "review": "book was fluff",
-            "rating": "3"
-        }
+            "id": 2,
+            "rating": 3
+        },
+        "created": "2021-09-16T16:36:39.000Z",
+        "modified": "2021-09-16T19:43:30.000Z"
     },
     {
         "key": "The-Minimalist-Entrepreneur:Review:3",
         "value": {
-            "id": "3",
             "review": "book was amazing",
-            "rating": "4"
-        }
+            "id": 3,
+            "rating": 4
+        },
+        "created": "2021-09-16T19:43:30.000Z",
+        "modified": "2021-09-16T19:43:30.000Z"
     }
 ]

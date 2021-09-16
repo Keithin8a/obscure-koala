@@ -35,3 +35,6 @@ It's using Serverless Cloud which lets me quickly spin up an application using t
     * Delivers value by keeping the UI clean and more user friendly
     * Call a refresh for the page data when modal closes
 
+## Technical Choices
+
+I decided that I would keep all the rendering logic on the frontend in this project since we know that we are wanting to eventually use react. This reduces the risk of migration because the backend should be able to stay the same no matter how we use the frontend.
