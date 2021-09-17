@@ -25,7 +25,7 @@ It's using Serverless Cloud which lets me quickly spin up an application using t
 4. Build Add Rating Overlay
     * This doesn't have to be a model for now, lets just add it on the page and get it hooked up.
     * Delivers value by proving out the design of the modal
-    * Add the stars graphic across app. Slight scope creep but I'm not worried about the extra effort at this stage.
+    * Add the stars graphic across app.
     * Stars don't need to be interactive
 5. Allow a user to submit a review
     * Delivers value by completing the main functionality of the application

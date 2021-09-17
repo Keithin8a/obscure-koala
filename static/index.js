@@ -1,10 +1,13 @@
-const getStarRating = (rating) => {
-    let starRating = ''
-    for(let i = 0; i < rating; i++){
-        starRating += ' *'
+const appendStars = (starElement, rating) => {
+    for(let i = 0; i < 5; i++){
+        const starImage = document.createElement("img");
+        if(i < rating){
+            starImage.src = "assets/yellowStar.svg"
+        } else {
+            starImage.src = "assets/star.svg"
+        }
+        starElement.appendChild(starImage);
     }
-
-    return starRating.trim();
 }
 
 fetch('/reviews',
@@ -26,8 +29,7 @@ fetch('/reviews',
 
         const star = document.createElement("div");
         star.className = "review-star"
-        const starRatingContent = document.createTextNode(getStarRating(rating));
-        star.appendChild(starRatingContent);
+        appendStars(star, rating);
 
         const ratingNum = document.createElement("div");
         ratingNum.className = "review-num"
@@ -56,9 +58,7 @@ fetch('/reviews',
 
     const averageStarElement = document.getElementById("averageStar");
     averageStarElement.innerHTML = "";
-    
-    const averageStarContent = document.createTextNode(getStarRating(Math.ceil(averageRating)));
-    averageStarElement.appendChild(averageStarContent);
+    appendStars(averageStarElement, Math.ceil(averageRating));
 
 }).catch(function (err) {
 	console.warn('Something went wrong.', err);

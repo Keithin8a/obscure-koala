@@ -32,11 +32,14 @@ h2 {
 
 .rating-star {
     flex: 2;
+    align-self: center;
 }
 
-.add-review {
-    flex: 1;
-    justify-self: flex-end;
+.rating-star * {
+    margin-right: 5px;
+}
+
+.btn {
     background: #ffffff;
     border: 1px solid #cccccc;
     box-sizing: border-box;
@@ -48,6 +51,11 @@ h2 {
     /*font-weight: 700; Leaving out because I don't have Helvetica Neue and 700 looks weird in this font*/
     font-size: 17px;
     color: #797874;
+}
+
+.add-review {
+    flex: 1;
+    justify-self: flex-end;
 }
 
 .h-rule {
@@ -64,6 +72,10 @@ h2 {
     margin: 0 29px 29px 0;
 }
 
+.review-star * {
+    margin-right: 5px;
+}
+
 .review-num {
     font-weight: 700;
 }
@@ -75,4 +87,21 @@ h2 {
 
 .review-desc {
     color: #797874;
+}
+
+input {
+    border: none;
+}
+
+.overlay-rating-container h2 {
+    line-height: 40px;
+}
+
+.submit-review {
+    display: block;
+    margin-top: 40px;
+}
+
+.rating-overlay {
+    border-radius: 20px;
 }
