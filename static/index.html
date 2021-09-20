@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Obscure Koala Ratings</title>
+	<title>MVP - Obscure Koala Ratings</title>
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,27 +20,32 @@
 		<div class="rating-container">
 			<div id="averageRating" class="rating-num"> - </div>
 			<div id="averageStar" class="rating-star"> - </div>
-			<button class="btn add-review" type="button">Add review</button>
+			<button class="btn add-review" type="button" data-modal="modal-one">Add review</button>
 		</div>
 		<div class="h-rule"></div>
 		<h2>Reviews</h2>
 		<div id="reviewList" class="review-list">
 		</div>
 	</div>
-	<div class="rating-overlay">
-		<h1>What's your rating</h1>
-		<div class="overlay-rating-container">
-			<h2>Rating</h2>
-			<div class="rating-star">
-				<img id="rating-1" src="assets/star.svg">
-				<img id="rating-2" src="assets/star.svg">
-				<img id="rating-3" src="assets/star.svg">
-				<img id="rating-4" src="assets/star.svg">
-				<img id="rating-5" src="assets/star.svg">
+	<div class="modal" id="modal-one">
+		<div class="modal-bg modal-exit"></div>
+		<div class="rating-overlay">
+			<h1>What's your rating</h1>
+			<div class="overlay-rating-container">
+				<h2>Rating</h2>
+				<div class="rating-star">
+					<img id="rating-1" src="assets/star.svg">
+					<img id="rating-2" src="assets/star.svg">
+					<img id="rating-3" src="assets/star.svg">
+					<img id="rating-4" src="assets/star.svg">
+					<img id="rating-5" src="assets/star.svg">
+				</div>
+				<h2>Review</h2>
+				<input type="text" name="review" id="review-input" placeholder="Start typing...">
+				<button class="btn submit-review modal-exit" type="button" onclick="submitReview()">Submit
+					review</button>
 			</div>
-			<h2>Review</h2>
-			<input type="text" name="review" id="review-input" placeholder="Start typing...">
-			<button class="btn submit-review" type="button" onclick="submitReview()">Submit review</button>
+			<button class="modal-close modal-exit">X</button>
 		</div>
 	</div>
 </body>

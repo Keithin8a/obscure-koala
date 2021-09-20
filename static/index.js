@@ -52,19 +52,8 @@ const addReviewOnClickEvent = event => {
     }
 }
 
-const initialiseAddReview = () => {
-    for(let i = 0; i < NUMBER_OF_STARS; i++){
-        const starRating = document.getElementById(`rating-${i+1}`);
-        starRating.addEventListener("mouseover", addReviewMouseOverEvent)
-        starRating.addEventListener("mouseleave", addReviewMouseLeaveEvent)
-        starRating.addEventListener("click", addReviewOnClickEvent)
-    }
-}
-
-const submitReview = () => {
-    const rating = document.getElementsByClassName("clicked").length;
+const resetReview = () => {
     const reviewInput = document.getElementById("review-input");
-    const review = reviewInput.value;
     reviewInput.value = "";
 
     for(let i = 0; i < NUMBER_OF_STARS; i++){
@@ -72,6 +61,13 @@ const submitReview = () => {
         starRating.classList.remove("clicked");
         starRating.src = "assets/star.svg";
     }
+}
+
+const submitReview = () => {
+    const rating = document.getElementsByClassName("clicked").length;
+    const review = document.getElementById("review-input").value;
+
+    resetReview();
 
     fetch('/reviews', 
     {
@@ -140,14 +136,47 @@ const updateReviews = ({items}) => {
     appendStars(averageStarElement, Math.ceil(averageRating));
 }
 
-initialiseAddReview()
+const initialiseAddReview = () => {
+    for(let i = 0; i < NUMBER_OF_STARS; i++){
+        const starRating = document.getElementById(`rating-${i+1}`);
+        starRating.addEventListener("mouseover", addReviewMouseOverEvent)
+        starRating.addEventListener("mouseleave", addReviewMouseLeaveEvent)
+        starRating.addEventListener("click", addReviewOnClickEvent)
+    }
+}
 
-fetch('/reviews',
-{
-    method: "GET"
-}).then(
-    response => response.json()
-).then((data) => updateReviews(data)
-).catch((err) => {
-	console.warn('Something went wrong.', err);
-});
+const initialiseModals = () => {
+    var modalTriggers = document.querySelectorAll('[data-modal]');
+
+    modalTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', (event) => {
+            event.preventDefault();
+            var modal = document.getElementById(trigger.dataset.modal);
+            modal.classList.add('open');
+            var exits = modal.querySelectorAll('.modal-exit');
+            exits.forEach((exit) => {
+                exit.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    resetReview();
+                    modal.classList.remove('open');
+                });
+            });
+        });
+    });
+}
+
+const fetchInitialData = () => {
+    fetch('/reviews',
+    {
+        method: "GET"
+    }).then(
+        response => response.json()
+    ).then((data) => updateReviews(data)
+    ).catch((err) => {
+        console.warn('Something went wrong.', err);
+    });
+}
+
+initialiseAddReview()
+initialiseModals()
+fetchInitialData()
