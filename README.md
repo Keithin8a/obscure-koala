@@ -31,10 +31,15 @@ It's using Serverless Cloud which lets me quickly spin up an application using t
     * Delivers value by completing the main functionality of the application
     * Stars should be interactive
     * Submit review button calls backend
-6. Make submit review code a modal
+6. Make submit review a modal
     * Delivers value by keeping the UI clean and more user friendly
     * Call a refresh for the page data when modal closes
 
 ## Technical Choices
 
-I decided that I would keep all the rendering logic on the frontend in this project since we know that we are wanting to eventually use react. This reduces the risk of migration because the backend should be able to stay the same no matter how we use the frontend.
+* I decided that I would keep all the rendering logic on the frontend in this project since we know that we are wanting to eventually use react. This reduces the risk of migration because the backend should be able to stay the same no matter how we use the frontend.
+* There is probably a more efficient way of handling all the event logic but the size of the site and MVP nature getting it implemented in a way that worked felt like a better option than spending time thinking of a nicer solution
+
+## Nice to Haves
+
+* I would have liked to have had some frontend validation but in the interest of treating this as a real MVP that I had to get out in under 10 hours I felt that as long as the backend validation was in place and tested it was less of a concern if the frontend experience was not great.

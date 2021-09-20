@@ -13,7 +13,12 @@ api.get('/reviews', async (req, res) => {
 })
 
 api.post('/reviews', async (req, res) => {
-  const body = req.body
+  const {rating, review} = req.body
+
+  if(!rating || !review) {
+    res.status(400).send("Bad Request, Please enter both review and rating");
+    return;
+  }
 
   const id = (await getReviews()).items.length + 1 || 1;
 
@@ -21,7 +26,8 @@ api.post('/reviews', async (req, res) => {
     `The-Minimalist-Entrepreneur:Review::${id}`,
     {
       id,
-      ...body,
+      rating,
+      review
     }
   )
 

@@ -6,8 +6,9 @@ describe("index.js", ()=> {
     });
 
     test("should get reviews", async () => {    
-        const { body } = await api.get("/reviews").invoke();
+        const { status, body } = await api.get("/reviews").invoke();
     
+        expect(status).toBe(200);
         expect(body).toEqual({
             items: [
             {
@@ -25,11 +26,12 @@ describe("index.js", ()=> {
     });
 
     test("should post a review", async () => {
-        const { body } = await api.post("/reviews").invoke({
+        const { status, body } = await api.post("/reviews").invoke({
             review: "book was awesome",
             rating: 4
         });
 
+        expect(status).toBe(200);
         expect(body).toEqual({
             items: [
             {
@@ -50,4 +52,23 @@ describe("index.js", ()=> {
             ],
         });
     });
+
+    test("should return a 400 if no review in body", async () => {
+        const { status, body } = await api.post("/reviews").invoke({
+            rating: 4
+        });
+
+        expect(status).toBe(400);
+        expect(body).toBe("Bad Request, Please enter both review and rating");
+    });
+
+    test("should return a 400 if no review in body", async () => {
+        const { status, body } = await api.post("/reviews").invoke({
+            review: "book was awesome",
+        });
+
+        expect(status).toBe(400);
+        expect(body).toBe("Bad Request, Please enter both review and rating");
+    });
+
 });
